@@ -1,5 +1,7 @@
+"use client"
 
 import { Box, Button, Flex, ListItem, Stack, Text, UnorderedList } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
 
@@ -53,12 +55,15 @@ export const Navbar = () => {
           </ListItem>
         </UnorderedList>
         <Box
+          as={motion.div}
           display={'flex'}
           flexGrow={1}
           maxW={'250px'}
           justifyContent={'end'}
+          whileTap={{ scale: 0.9 }}
         >
-          <Button>
+          <Button
+          >
             SingIn
           </Button>
         </Box>
