@@ -1,73 +1,113 @@
 "use client"
 
-import { Box, Button, Flex, ListItem, Stack, Text, UnorderedList } from '@chakra-ui/react'
+import { Box, Button, Divider, Flex, ListItem, Stack, Text, UnorderedList } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
 
+const MotionLink = motion(Button)
+
 export const Navbar = () => {
+
   return (
-    <Flex
-      as={'header'}
-      w={'100%'}
-      borderWidth={'thin'}
-      borderColor={'cyan'}
-    >
-      <Stack
-        as={'nav'}
-        borderWidth={'thin'}
-        borderColor={'red'}
-        w={'70%'}
-        direction={'row'}
-        justifyContent={'space-between'}
-        alignItems={'center'}
-        mx={'auto'}
+    <>
+      <Flex
+        as={'header'}
+        w={'100%'}
+        minH={'80px'}
       >
-        <Box
-          display={'flex'}
-          flexGrow={1}
-          maxW={'250px'}
+        <Stack
+          as={'nav'}
+          w={'70%'}
+          direction={'row'}
+          justifyContent={'space-between'}
+          alignItems={'center'}
+          mx={'auto'}
         >
-          <Text>
-            Iglesia Cristiana Barrio Nuevo
-          </Text>
-        </Box>
-        <UnorderedList
-          display={'flex'}
-          styleType={'none'}
-          flexGrow={2}
-          borderWidth={'thin'}
-          borderColor={'green'}
-          justifyContent={'center'}
-          gap={8}
-        >
-          <ListItem>
-            <Link href={'/nosotros'}>Nosotros</Link>
-          </ListItem>
-          <ListItem>
-            <Link href={'/ministerios'}>Ministerios</Link>
-          </ListItem>
-          <ListItem>
-            <Link href={'/servicios'}>Servicios</Link>
-          </ListItem>
-          <ListItem>
-            <Link href={'/contacto'}>Contacto</Link>
-          </ListItem>
-        </UnorderedList>
-        <Box
-          as={motion.div}
-          display={'flex'}
-          flexGrow={1}
-          maxW={'250px'}
-          justifyContent={'end'}
-          whileTap={{ scale: 0.9 }}
-        >
-          <Button
+          <Box
+            display={'flex'}
+            flexGrow={1}
+            maxW={'250px'}
           >
-            SingIn
-          </Button>
-        </Box>
-      </Stack>
-    </Flex>
+            <Link
+              href={'/'}
+            >
+              Iglesia Cristiana Barrio Nuevo
+            </Link>
+          </Box>
+          <UnorderedList
+            display={'flex'}
+            styleType={'none'}
+            flexGrow={2}
+            justifyContent={'center'}
+            gap={8}
+          >
+            <ListItem>
+              <MotionLink
+                as={Link}
+                colorScheme={'blue'}
+                href={'/nosotros'}
+                variant={'ghost'}
+                whileHover={{ scale: 0.95 }}
+              >
+                Nosotros
+              </MotionLink>
+            </ListItem>
+            <ListItem>
+              <MotionLink
+                as={Link}
+                colorScheme={'blue'}
+                href={'/ministerios'}
+                variant={'ghost'}
+                whileHover={{ scale: 0.95 }}
+              >
+                Ministerios
+              </MotionLink>
+            </ListItem>
+            <ListItem>
+              <MotionLink
+                as={Link}
+                colorScheme={'blue'}
+                href={'/servicios'}
+                variant={'ghost'}
+                whileHover={{ scale: 0.95 }}
+              >
+                Servicios
+              </MotionLink>
+            </ListItem>
+            <ListItem>
+              <MotionLink
+                as={Link}
+                colorScheme={'blue'}
+                href={'/contacto'}
+                variant={'ghost'}
+                whileHover={{ scale: 0.95 }}
+              >
+                Contacto
+              </MotionLink>
+            </ListItem>
+          </UnorderedList>
+          <Box
+            display={'flex'}
+            flexGrow={1}
+            maxW={'250px'}
+            justifyContent={'end'}
+          >
+            <Button
+              as={motion.button}
+              colorScheme={'teal'}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              SingIn
+            </Button>
+          </Box>
+        </Stack>
+      </Flex>
+      <Divider
+        borderWidth={'1px'}
+        colorScheme='red'
+      />
+    </>
   )
 }
