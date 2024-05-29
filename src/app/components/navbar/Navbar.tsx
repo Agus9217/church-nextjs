@@ -1,13 +1,18 @@
 "use client"
 
-import { Box, Button, Divider, Flex, ListItem, Stack, Text, UnorderedList } from '@chakra-ui/react'
+import { Box, Button, Divider, Flex, Stack, useBreakpointValue } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
-import React from 'react'
-
-const MotionLink = motion(Button)
+import { DesktopNavbar } from './DesktopNavbar'
+import { LinkButton } from '../link-button/LinkButton'
 
 export const Navbar = () => {
+
+  const display = useBreakpointValue(
+    {
+      base: 'none',
+      md: 'flex'
+    }
+  )
 
   return (
     <>
@@ -15,6 +20,7 @@ export const Navbar = () => {
         as={'header'}
         w={'100%'}
         minH={'80px'}
+        bg={'gray.500'}
       >
         <Stack
           as={'nav'}
@@ -25,78 +31,34 @@ export const Navbar = () => {
           mx={'auto'}
         >
           <Box
+            borderWidth={'thin'}
+            borderColor={'cyan'}
             display={'flex'}
             flexGrow={1}
             maxW={'250px'}
+            color={'white'}
           >
-            <Link
+            <LinkButton
               href={'/'}
-            >
-              Iglesia Cristiana Barrio Nuevo
-            </Link>
+              text={'Iglesia Cristiana Barrio Nuevo'}
+              variant={'ghost'}
+              colorScheme={'white'}
+              color={'white'}
+              whileHover={{ scale: 0.95 }}
+            />
           </Box>
-          <UnorderedList
-            display={'flex'}
-            styleType={'none'}
-            flexGrow={2}
-            justifyContent={'center'}
-            gap={8}
-          >
-            <ListItem>
-              <MotionLink
-                as={Link}
-                colorScheme={'blue'}
-                href={'/nosotros'}
-                variant={'ghost'}
-                whileHover={{ scale: 0.95 }}
-              >
-                Nosotros
-              </MotionLink>
-            </ListItem>
-            <ListItem>
-              <MotionLink
-                as={Link}
-                colorScheme={'blue'}
-                href={'/ministerios'}
-                variant={'ghost'}
-                whileHover={{ scale: 0.95 }}
-              >
-                Ministerios
-              </MotionLink>
-            </ListItem>
-            <ListItem>
-              <MotionLink
-                as={Link}
-                colorScheme={'blue'}
-                href={'/servicios'}
-                variant={'ghost'}
-                whileHover={{ scale: 0.95 }}
-              >
-                Servicios
-              </MotionLink>
-            </ListItem>
-            <ListItem>
-              <MotionLink
-                as={Link}
-                colorScheme={'blue'}
-                href={'/contacto'}
-                variant={'ghost'}
-                whileHover={{ scale: 0.95 }}
-              >
-                Contacto
-              </MotionLink>
-            </ListItem>
-          </UnorderedList>
+          <DesktopNavbar display={display} />
           <Box
             display={'flex'}
             flexGrow={1}
             maxW={'250px'}
             justifyContent={'end'}
+            borderWidth={'thin'}
+            borderColor={'blue'}
           >
             <Button
               as={motion.button}
               colorScheme={'teal'}
-              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               SingIn
