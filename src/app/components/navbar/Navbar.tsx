@@ -4,6 +4,9 @@ import { Box, Button, Divider, Flex, Stack, useBreakpointValue } from '@chakra-u
 import { motion } from 'framer-motion'
 import { DesktopNavbar } from './DesktopNavbar'
 import { LinkButton } from '../link-button/LinkButton'
+import { PiChurchBold } from "react-icons/pi";
+import { IoLogInOutline } from "react-icons/io5";
+
 
 export const Navbar = () => {
 
@@ -23,8 +26,11 @@ export const Navbar = () => {
         bg={'gray.500'}
       >
         <Stack
+          borderWidth={'thin'}
+          borderColor={'red'}
           as={'nav'}
-          w={'70%'}
+          maxW={'70%'}
+          width={'100%'}
           direction={'row'}
           justifyContent={'space-between'}
           alignItems={'center'}
@@ -36,6 +42,7 @@ export const Navbar = () => {
             display={'flex'}
             flexGrow={1}
             maxW={'250px'}
+            width={'100%'}
             color={'white'}
           >
             <LinkButton
@@ -45,6 +52,7 @@ export const Navbar = () => {
               colorScheme={'white'}
               color={'white'}
               whileHover={{ scale: 0.95 }}
+              leftIcon={<PiChurchBold />}
             />
           </Box>
           <DesktopNavbar display={display} />
@@ -52,17 +60,18 @@ export const Navbar = () => {
             display={'flex'}
             flexGrow={1}
             maxW={'250px'}
+            width={'100%'}
             justifyContent={'end'}
             borderWidth={'thin'}
             borderColor={'blue'}
           >
-            <Button
-              as={motion.button}
+            <LinkButton
+              href={'/'}
+              text={'SignIn'}
               colorScheme={'teal'}
-              whileTap={{ scale: 0.9 }}
-            >
-              SingIn
-            </Button>
+              whileTap={{ scale: 0.95 }}
+              rightIcon={<IoLogInOutline size={'22px'} />}
+            />
           </Box>
         </Stack>
       </Flex>
