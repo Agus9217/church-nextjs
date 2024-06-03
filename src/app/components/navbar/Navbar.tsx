@@ -1,11 +1,11 @@
 "use client"
 
-import { Box, Button, Divider, Flex, Stack, useBreakpointValue } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
+import { Box, Divider, Flex, Stack, useBreakpointValue } from '@chakra-ui/react'
 import { DesktopNavbar } from './DesktopNavbar'
 import { LinkButton } from '../link-button/LinkButton'
 import { PiChurchBold } from "react-icons/pi";
 import { IoLogInOutline } from "react-icons/io5";
+import { MobileNavbar } from './MobileNavbar';
 
 
 export const Navbar = () => {
@@ -13,7 +13,7 @@ export const Navbar = () => {
   const display = useBreakpointValue(
     {
       base: 'none',
-      md: 'flex'
+      lg: 'flex'
     }
   )
 
@@ -29,7 +29,7 @@ export const Navbar = () => {
           borderWidth={'thin'}
           borderColor={'red'}
           as={'nav'}
-          maxW={'70%'}
+          maxW={'95%'}
           width={'100%'}
           direction={'row'}
           justifyContent={'space-between'}
@@ -72,6 +72,7 @@ export const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               rightIcon={<IoLogInOutline size={'22px'} />}
             />
+            <MobileNavbar display={display} />
           </Box>
         </Stack>
       </Flex>

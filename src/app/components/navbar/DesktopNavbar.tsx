@@ -12,9 +12,9 @@ export const DesktopNavbar = ({ display }: Props) => {
     <UnorderedList
       display={display !== 'flex' ? 'none' : 'flex'}
       styleType={'none'}
+      w={'100%'}
       flexGrow={2}
       justifyContent={'center'}
-      gap={8}
       borderWidth={'thin'}
       m={0}
       borderColor={'blue'}
