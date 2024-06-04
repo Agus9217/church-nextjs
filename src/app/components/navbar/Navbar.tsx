@@ -6,9 +6,9 @@ import { LinkButton } from '../link-button/LinkButton'
 import { PiChurchBold } from "react-icons/pi";
 import { IoLogInOutline } from "react-icons/io5";
 import { MobileNavbar } from './MobileNavbar';
+import { ReactElement } from 'react';
 
-
-export const Navbar = () => {
+export const Navbar = (): ReactElement => {
 
   const display = useBreakpointValue(
     {
@@ -67,19 +67,16 @@ export const Navbar = () => {
           >
             <LinkButton
               href={'/'}
-              text={'SignIn'}
+              text={'Sing In'}
               colorScheme={'teal'}
               whileTap={{ scale: 0.95 }}
               rightIcon={<IoLogInOutline size={'22px'} />}
+              display={display !== 'none' ? 'flex' : 'none'}
             />
             <MobileNavbar display={display} />
           </Box>
         </Stack>
       </Flex>
-      <Divider
-        borderWidth={'1px'}
-        colorScheme='red'
-      />
     </>
   )
 }

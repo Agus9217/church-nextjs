@@ -15,12 +15,12 @@ interface Props {
   color?: string
   leftIcon?: React.ReactElement
   rightIcon?: React.ReactElement
-
+  display?: string | undefined
 }
 
 const MotionLink = motion(Button)
 
-export const LinkButton = ({ text, colorScheme, href, variant, whileHover, whileTap, color, leftIcon, rightIcon }: Props) => {
+export const LinkButton = ({ text, colorScheme, href, variant, whileHover, whileTap, color, leftIcon, rightIcon, display }: Props) => {
   return (
     <MotionLink
       href={href}
@@ -32,6 +32,7 @@ export const LinkButton = ({ text, colorScheme, href, variant, whileHover, while
       color={color}
       leftIcon={leftIcon}
       rightIcon={rightIcon}
+      display={display}
     >
       {text}
     </MotionLink>

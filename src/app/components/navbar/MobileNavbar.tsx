@@ -1,5 +1,7 @@
 import { Box, IconButton, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
 import { IoMenuOutline } from "react-icons/io5";
+import { navItem } from "./nav-items";
+import { ReactElement } from "react";
 
 interface Props {
   display: string | undefined
@@ -12,16 +14,21 @@ export const MobileNavbar = ({ display }: Props) => {
     >
       <Menu>
         <MenuButton
+          colorScheme={'teal'}
           as={IconButton}
           icon={<IoMenuOutline />}
+          fontSize={'1.5rem'}
+          variant={'outline'}
         />
 
         <MenuList>
-          <MenuItem>Download</MenuItem>
-          <MenuItem>Create a Copy</MenuItem>
-          <MenuItem>Mark as Draft</MenuItem>
-          <MenuItem>Delete</MenuItem>
-          <MenuItem>Attend a Workshop</MenuItem>
+          {
+            navItem.map(({ label }: { label: string }): ReactElement => (
+              <MenuItem key={label}>
+                {label}
+              </MenuItem>
+            ))
+          }
         </MenuList>
       </Menu>
     </Box>
