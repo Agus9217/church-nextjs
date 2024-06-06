@@ -18,9 +18,7 @@ export const MobileNavbar = ({ display }: Props) => {
           as={IconButton}
           icon={<IoMenuOutline />}
           fontSize={'1.5rem'}
-          variant={'outline'}
         />
-
         <MenuList>
           {
             navItem.map(({ label }: { label: string }): ReactElement => (

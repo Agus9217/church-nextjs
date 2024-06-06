@@ -15,9 +15,7 @@ export const DesktopNavbar = ({ display }: Props) => {
       w={'100%'}
       flexGrow={2}
       justifyContent={'center'}
-      borderWidth={'thin'}
       m={0}
-      borderColor={'blue'}
     >
       <ListItem>
         {

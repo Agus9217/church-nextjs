@@ -20,14 +20,18 @@ export const Navbar = (): ReactElement => {
   return (
     <>
       <Flex
+        position={'fixed'}
         as={'header'}
         w={'100%'}
         minH={'80px'}
-        bg={'gray.500'}
+        top={0}
+        zIndex={1000}
+        borderWidth={'thin'}
+        borderColor={'red'}
+        alignItems={'center'}
+        justifyContent={'center'}
       >
         <Stack
-          borderWidth={'thin'}
-          borderColor={'red'}
           as={'nav'}
           maxW={'95%'}
           width={'100%'}
@@ -37,13 +41,13 @@ export const Navbar = (): ReactElement => {
           mx={'auto'}
         >
           <Box
-            borderWidth={'thin'}
-            borderColor={'cyan'}
             display={'flex'}
             flexGrow={1}
             maxW={'250px'}
             width={'100%'}
             color={'white'}
+            borderWidth={'thin'}
+            borderColor={'blue'}
           >
             <LinkButton
               href={'/'}
@@ -53,6 +57,7 @@ export const Navbar = (): ReactElement => {
               color={'white'}
               whileHover={{ scale: 0.95 }}
               leftIcon={<PiChurchBold />}
+              fontSize={'16px'}
             />
           </Box>
           <DesktopNavbar display={display} />
@@ -63,14 +68,14 @@ export const Navbar = (): ReactElement => {
             width={'100%'}
             justifyContent={'end'}
             borderWidth={'thin'}
-            borderColor={'blue'}
+            borderColor={'red'}
           >
             <LinkButton
               href={'/'}
               text={'Sing In'}
               colorScheme={'teal'}
               whileTap={{ scale: 0.95 }}
-              rightIcon={<IoLogInOutline size={'22px'} />}
+              rightIcon={<IoLogInOutline />}
               display={display !== 'none' ? 'flex' : 'none'}
             />
             <MobileNavbar display={display} />

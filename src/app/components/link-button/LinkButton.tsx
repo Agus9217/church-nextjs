@@ -16,11 +16,12 @@ interface Props {
   leftIcon?: React.ReactElement
   rightIcon?: React.ReactElement
   display?: string | undefined
+  fontSize?: string | number
 }
 
 const MotionLink = motion(Button)
 
-export const LinkButton = ({ text, colorScheme, href, variant, whileHover, whileTap, color, leftIcon, rightIcon, display }: Props) => {
+export const LinkButton = ({ text, colorScheme, href, variant, whileHover, whileTap, color, leftIcon, rightIcon, display, fontSize }: Props) => {
   return (
     <MotionLink
       href={href}
@@ -33,6 +34,7 @@ export const LinkButton = ({ text, colorScheme, href, variant, whileHover, while
       leftIcon={leftIcon}
       rightIcon={rightIcon}
       display={display}
+      fontSize={fontSize}
     >
       {text}
     </MotionLink>
